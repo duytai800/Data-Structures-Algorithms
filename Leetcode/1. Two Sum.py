@@ -6,9 +6,14 @@
 # Output: [0,1]
 # Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-            for i in range(len(nums)):
-                for j in range(i+1,len(nums)):
-                    if target == nums[i]+nums[j]:
-                        return [i,j]
+class Solution(object):
+    def twoSum(self, arr, target):
+        dictionary =dict()
+        for i, num in enumerate(arr):
+            x=target-num
+            
+            if x in dictionary:
+                return ( [dictionary[x],i])
+            
+            dictionary[num]=i
+        return ( []  )  
